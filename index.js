@@ -40,7 +40,7 @@ function playAudio(key) {
 
 function buttonPressed(key) {
   try {
-    var pressedButton = document.querySelector("."+key); // in case the user press the wrong key; 
+    let pressedButton = document.querySelector("."+key); // in case the user press the wrong key; 
     pressedButton.classList.add("pressed");
   } catch (e) {
     console.log(e);
