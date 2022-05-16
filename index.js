@@ -40,7 +40,7 @@ function playAudio(key) {
 
 function buttonPressed(key) {
   try {
-    let pressedButton = document.querySelector("."+key); // in case the user press the wrong key; 
+    let pressedButton = document.querySelector("."+key); // in case the user press the wrong key;
     pressedButton.classList.add("pressed");
   } catch (e) {
     console.log(e);
@@ -53,35 +53,11 @@ function buttonPressed(key) {
 document.addEventListener('keydown', function(event) {
   playAudio(event.key);
   buttonPressed(event.key);
-  // console.log(event);
-//  console.log(this);
-  // event is the implicit first argument of the function. Can be named to be anything
 });
 
 for (const button of buttons) {
   button.addEventListener("click", function(){
-  //  console.log("click");
-  //  console.log(this);  // this is the button. Here we are adding the evenListener to the button object
     playAudio(this.innerHTML);
     buttonPressed(this.innerHTML);
   });
 }
-
-/* other code templates */
-
-/* for (let i = 0; i < buttons.length; i++) {
-  const button = buttons[i];
-  button.addEventListener('click', function () {
-    alert(button.innerHTML+" button got clicked!")
-  })
-}
-*/
-
-/* function clicked(button){
-  let crash = new Audio('sounds/crash.mp3');
-  crash.play()
-}
-
-for (const button of buttons) {
-  button.addEventListener("click", function(){clicked(button)});
-} */
