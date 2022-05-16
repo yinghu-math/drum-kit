@@ -33,13 +33,18 @@ function playAudio(key) {
       break;
    default:
       console.log(key);
+      return;
   }
 }
 
 
 function buttonPressed(key) {
-  var pressedButton = document.querySelector("."+key);
-  pressedButton.classList.add("pressed");
+  try {
+    var pressedButton = document.querySelector("."+key); // in case the user press the wrong key; 
+    pressedButton.classList.add("pressed");
+  } catch (e) {
+    console.log(e);
+  }
   setTimeout(function (){
     pressedButton.classList.remove("pressed");
   }, 100);
