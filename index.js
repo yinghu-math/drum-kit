@@ -8,12 +8,12 @@ const buttons = document.querySelectorAll('.drum')
 }
 */
 
-
 function clicked(button){
   alert(button.innerHTML+" button got clicked!");
 }
 
-
 for (const button of buttons) {
   button.addEventListener("click", function(){clicked(button)});
 }
+
+let crash = new Audio('sounds/crash.mp3');
