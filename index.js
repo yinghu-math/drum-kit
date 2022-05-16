@@ -8,65 +8,38 @@ var snare = new Audio('sounds/snare.mp3');
 var crash = new Audio('sounds/crash.mp3');
 var kickBass = new Audio('sounds/kick-bass.mp3');
 
-document.addEventListener('keydown', function(event) {
-  switch (event.code) {
-    case 'KeyW':
+function playAudio(key) {
+  switch (key) {
+    case 'w':
       tom1.play();
       break;
-    case 'KeyA':
+    case 'a':
       tom2.play();
       break;
-    case 'KeyS':
+    case 's':
       tom3.play();
       break;
-    case 'KeyD':
+    case 'd':
       tom4.play();
       break;
-    case 'KeyJ':
+    case 'j':
       snare.play();
       break;
-    case 'KeyK':
+    case 'k':
       crash.play();
       break;
-    case 'KeyL':
+    case 'l':
       kickBass.play();
       break;
    default:
-      console.log(event.code);
+      console.log(key);
   }
-});
+}
 
+document.addEventListener('keydown', function() {playAudio(event.key)});
 
 for (const button of buttons) {
-  button.addEventListener("click", function(){
-    // console.log(this); will give me the button that was triggered the function.
-    let buttonText = this.innerHTML;
-    switch (buttonText) {
-      case 'w':
-        tom1.play();
-        break;
-      case 'a':
-        tom2.play();
-        break;
-      case 's':
-        tom3.play();
-        break;
-      case 'd':
-        tom4.play();
-        break;
-      case 'j':
-        snare.play();
-        break;
-      case 'k':
-        crash.play();
-        break;
-      case 'l':
-        kickBass.play();
-        break;
-     default:
-        console.log(buttonText);
-    }
-  });
+  button.addEventListener("click", function(event){playAudio(this.innerHTML)});
 }
 
 /* other code templates */
