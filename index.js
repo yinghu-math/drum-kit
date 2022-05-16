@@ -36,8 +36,18 @@ function playAudio(key) {
   }
 }
 
+
+function buttonPressed(key) {
+  var pressedButton = document.querySelector("."+key);
+  pressedButton.classList.add("pressed");
+  setTimeout(function (){
+    pressedButton.classList.remove("pressed");
+  }, 100);
+}
+
 document.addEventListener('keydown', function(event) {
   playAudio(event.key);
+  buttonPressed(event.key);
   // console.log(event);
 //  console.log(this);
   // event is the implicit first argument of the function. Can be named to be anything
@@ -47,7 +57,9 @@ for (const button of buttons) {
   button.addEventListener("click", function(){
   //  console.log("click");
   //  console.log(this);  // this is the button. Here we are adding the evenListener to the button object
-    playAudio(this.innerHTML)});
+    playAudio(this.innerHTML);
+    buttonPressed(this.innerHTML);
+  });
 }
 
 /* other code templates */
